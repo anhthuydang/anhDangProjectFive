@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import firebase from './firebase';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 import Bag from './Bag';
 
@@ -11,7 +11,7 @@ constructor() {
     super();
     this.state = {
       dbRef: firebase.database().ref(),
-      cartRef: firebase.database().ref('userCart'),
+      bagRef: firebase.database().ref('userBag'),
       cakes: [],
       userBag: [],
       total: 0,
@@ -33,9 +33,12 @@ componentDidMount() {
         })
     })
     //set state to display cakes in user's shopping bag
-    this.state.cartRef.on('value', (response) => {
+    this.state.bagRef.on('value', (response) => {
     const newBag = [];
     const dataFromUserBag = response.val();
+   
+      const number = Object.keys(dataFromUserBag).length;
+      console.log(number);
 
     for (let key in dataFromUserBag) {
       newBag.push({
@@ -45,7 +48,7 @@ componentDidMount() {
       })
     }
     
-    //Function to map out an array of prices then calculate total price
+    //Function to map out an array of prices then calculate total price (sum of the array)
     const newTotal = newBag.map(value => {
       return value.price;
     }).reduce((a,b) => a + b, 0);
@@ -59,16 +62,17 @@ componentDidMount() {
 }
 //send data of chosen cakes to store in firebase (users)
 handleAddToBag = (chosenCake) => {
-  this.state.cartRef.push(chosenCake);
+  this.state.bagRef.push(chosenCake);
   
 }
 //remove cake from shopping bag
 removeCake = (unwantedCakeId) => {
-  this.state.cartRef.child(unwantedCakeId).remove();
+  this.state.bagRef.child(unwantedCakeId).remove();
 }
 
 //--------------
   render() {
+    
     return (
       <main>
           <div className="wrapper">
@@ -87,27 +91,13 @@ removeCake = (unwantedCakeId) => {
                     )
                 })}
             </ul>
-            {/* <Bag /> */}
-            <div className="userCakes">
-                <p>You have {this.state.userBag.length} items in your bags</p>
-                <ul>
-                  {this.state.userBag.map(item => {
-                    return (
-                      <li key={item.id}>
-                            <img src={item.cake.image} alt={item.cake.name}/>
-                            <div className="bagText">
-                              <p>{item.cake.name}</p>
-                              <p>${item.cake.price}</p>
-                            </div>
-                            <button onClick={() => this.removeCake(item.id)} className="deleteButton">
-                                <FontAwesomeIcon icon={faTimesCircle} />
-                            </button>
-                      </li>
-                    )
-                  })}
-                <p>Total: ${this.state.total}</p>
-                </ul>
-            </div>
+            {this.props.isBagShown ? 
+            <Bag
+            handleHideBag={this.props.handleHideBag} 
+            userBag={this.state.userBag} 
+            removeCake={this.removeCake}
+            total={this.state.total} 
+            /> : null }
           </div>
       </main>
     );

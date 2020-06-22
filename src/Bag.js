@@ -1,16 +1,36 @@
 import React, {Component} from 'react';
-import firebase from './firebase';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+
 
 
 class Bag extends Component {
-    constructor() {
-        super();
-        
-    }
   render() {
+    const {handleHideBag, userBag, removeCake, total} = this.props;
     return (
-      <div className="bag">
-          <p>You have 0 items in your bags</p>
+      <div className="userCakes">
+        <button className="goBackButton" onClick={handleHideBag}>
+          <FontAwesomeIcon icon={faArrowLeft} />
+        </button>
+        <p>You have {userBag.length} items in your bags</p>
+        <ul>
+          {userBag.map(item => {
+            return (
+              <li key={item.id}>
+                    <img src={item.cake.image} alt={item.cake.name}/>
+                    <div className="bagText">
+                      <p>{item.cake.name}</p>
+                      <p>${item.cake.price}</p>
+                    </div>
+                    <button onClick={() => removeCake(item.id)} className="deleteButton">
+                        <FontAwesomeIcon icon={faTimesCircle} />
+                    </button>
+              </li>
+            )
+          })}
+        <p>Total: ${total}</p>
+        </ul>
       </div>
     );
   }
