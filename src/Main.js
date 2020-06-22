@@ -4,6 +4,7 @@ import firebase from './firebase';
 // import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 import Bag from './Bag';
+import BagButton from './BagButton';
 
 
 class Main extends Component {
@@ -37,8 +38,8 @@ componentDidMount() {
     const newBag = [];
     const dataFromUserBag = response.val();
    
-      const number = Object.keys(dataFromUserBag).length;
-      console.log(number);
+      // const number = Object.keys(dataFromUserBag).length;
+      // console.log(number);
 
     for (let key in dataFromUserBag) {
       newBag.push({
@@ -91,6 +92,12 @@ removeCake = (unwantedCakeId) => {
                     )
                 })}
             </ul>
+
+            <BagButton 
+            handleShowBag={this.props.handleShowBag}
+            userBag={this.state.userBag}  
+            />
+
             {this.props.isBagShown ? 
             <Bag
             handleHideBag={this.props.handleHideBag} 

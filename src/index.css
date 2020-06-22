@@ -75,22 +75,6 @@ nav {
   position: fixed;
   top: 0;
 }
-nav button {
-  font-size: 4rem;
-  border: none;
-  background: transparent;  
-  color: #6d4522;
-  padding-top: 3px;
-  padding-right: 5vw;
-  position: relative;
-}
-nav button p {
-  font-size: 2rem;
-  color: #fff;
-  position: absolute;
-  top: 23px;
-  left: 17px;
-}
 
 .headerImage {
   width: 40%;
@@ -120,11 +104,42 @@ h1 {
 }
 
 .storeCakes li p {
-  font-size: 2rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+  display: inline-block;
+  width: 50%;
 }
 
 .storeCakes li button {
   font-size: 2rem;
+  background-color: #ffdfd2;
+  border: none;
+  padding: 10px 10px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+/*---Bag Button----*/
+.bagButtonContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+.bagButton {
+  font-size: 4rem;
+  border: none;
+  background: transparent;  
+  color: #6d4522;
+  padding-top: 3px;
+  padding-right: 5vw;
+  position: relative;
+}
+.bagButton p {
+  font-size: 2rem;
+  color: #fff;
+  position: absolute;
+  top: 23px;
+  left: 17px;
 }
 
 /*-----BAG-----*/

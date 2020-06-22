@@ -31,11 +31,10 @@ class App extends Component {
   render() {
     return (
       <>
-        <Header 
-        handleShowBag={this.handleShowBag}
-         />
+        <Header />
         <Main 
         isBagShown={this.state.isBagShown}
+        handleShowBag={this.handleShowBag}
         handleHideBag={this.handleHideBag}/>
         <Footer />
       </>
