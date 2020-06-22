@@ -18,7 +18,7 @@ constructor() {
     }
   }
 componentDidMount() {
-
+  //set state to display cakes on the page
     this.state.dbRef.on('value', (response) => {
         const newState = [];
         const data = response.val();
@@ -32,11 +32,11 @@ componentDidMount() {
             cakes: newState,
         })
     })
-    //--------------
+    //set state to display cakes in user's shopping bag
     this.state.cartRef.on('value', (response) => {
     const newBag = [];
     const dataFromUserBag = response.val();
-    // console.log(dataFromUserBag);
+
     for (let key in dataFromUserBag) {
       newBag.push({
         cake: dataFromUserBag[key],
@@ -44,24 +44,25 @@ componentDidMount() {
         price: dataFromUserBag[key].price
       })
     }
-
+    
+    //Function to map out an array of prices then calculate total price
     const newTotal = newBag.map(value => {
       return value.price;
-    })
-    console.log(newTotal);
+    }).reduce((a,b) => a + b, 0);
+
     this.setState ({
       userBag: newBag,
-       
+      total: newTotal,
+    
     })
-    // console.log(newBag);
   })
 }
-//--------------
-handleClick = (chosenCake, chosenCakeId, cakePrice) => {
+//send data of chosen cakes to store in firebase (users)
+handleAddToBag = (chosenCake) => {
   this.state.cartRef.push(chosenCake);
   
 }
-//--------------
+//remove cake from shopping bag
 removeCake = (unwantedCakeId) => {
   this.state.cartRef.child(unwantedCakeId).remove();
 }
@@ -79,7 +80,7 @@ removeCake = (unwantedCakeId) => {
                             <p>{item.cake.name}</p>
                             <p>${item.cake.price}</p>
                             <button 
-                            onClick={() => this.handleClick(item.cake, item.id, item.cake.price)}>
+                            onClick={() => this.handleAddToBag(item.cake, item.id)}>
                             Add to Cart
                             </button>
                         </li>
@@ -104,7 +105,7 @@ removeCake = (unwantedCakeId) => {
                       </li>
                     )
                   })}
-                <p>Total: {this.state.total}</p>
+                <p>Total: ${this.state.total}</p>
                 </ul>
             </div>
           </div>
