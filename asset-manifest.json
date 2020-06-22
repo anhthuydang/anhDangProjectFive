@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/anhDangProjectFive/static/css/main.bf918658.chunk.css",
+    "main.js": "/anhDangProjectFive/static/js/main.42278f71.chunk.js",
+    "main.js.map": "/anhDangProjectFive/static/js/main.42278f71.chunk.js.map",
+    "runtime-main.js": "/anhDangProjectFive/static/js/runtime-main.6b30ec5f.js",
+    "runtime-main.js.map": "/anhDangProjectFive/static/js/runtime-main.6b30ec5f.js.map",
+    "static/js/2.77791391.chunk.js": "/anhDangProjectFive/static/js/2.77791391.chunk.js",
+    "static/js/2.77791391.chunk.js.map": "/anhDangProjectFive/static/js/2.77791391.chunk.js.map",
+    "index.html": "/anhDangProjectFive/index.html",
+    "precache-manifest.5c3e9c3bd148ab2aa30492d323dde839.js": "/anhDangProjectFive/precache-manifest.5c3e9c3bd148ab2aa30492d323dde839.js",
+    "service-worker.js": "/anhDangProjectFive/service-worker.js",
+    "static/css/main.bf918658.chunk.css.map": "/anhDangProjectFive/static/css/main.bf918658.chunk.css.map",
+    "static/js/2.77791391.chunk.js.LICENSE.txt": "/anhDangProjectFive/static/js/2.77791391.chunk.js.LICENSE.txt",
+    "static/media/logo.jpg": "/anhDangProjectFive/static/media/logo.7e841cd3.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6b30ec5f.js",
+    "static/js/2.77791391.chunk.js",
+    "static/css/main.bf918658.chunk.css",
+    "static/js/main.42278f71.chunk.js"
+  ]
+}
