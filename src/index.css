@@ -46,15 +46,29 @@ li {
 li {
   list-style: none;
 }
+a,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+button {
+  transition: all 300ms ease-in-out;
+}
 
 .wrapper {
   max-width: 1280px;
   width: 90%;
   margin: 0 auto;
 }
+/* Setting Background color */
+header,
+nav,
+.storeCakes li,
+footer  {
+  background-color: #ffdfd2;
+}
 /*-----HEADER-----*/
 header {
-  background-color: #ffdfd2;  
   height: 100vh;
 }
 
@@ -68,23 +82,23 @@ header .wrapper {
 
 nav {
   width: 100%;
-  height: 55px;
-  background: #ffdfd2;
+  height: 70px;
   display: flex;
-  justify-content: flex-end; /*change this to flex-end after testing*/
+  justify-content: flex-end; 
   position: fixed;
   top: 0;
 }
 
 .headerImage {
-  width: 40%;
+  width: 50%;
 }
 
 header img {
   border-radius: 50%;
 }
 
-h1 {
+h1,
+h2 {
   font-size: 6rem;
   color: 	#6d4522;
   font-family: 'Parisienne', cursive;
@@ -92,6 +106,11 @@ h1 {
 }
 
 /*-----MAIN-----*/
+.storeCakes p, 
+.storeCakes button,
+footer {
+  font-family: 'Parisienne', cursive;;
+}
 .storeCakes {
   display: flex;
   flex-wrap: wrap;
@@ -99,27 +118,44 @@ h1 {
 }
 
 .storeCakes li {
-  width: calc(45% - 30px);
-  margin: 0 30px 30px 30px;
+  width: calc(33.33% - 30px);
+  margin: 15px;
+  text-align: right;
+  border-radius: 5px;
+  padding: 15px;
+  font-weight: 600;
 }
 
 .storeCakes li p {
   font-size: 2.5rem;
-  font-weight: 600;
   display: inline-block;
-  width: 50%;
+  width: 20%;
+  margin: 15px 0;
+}
+.storeCakes li p:nth-of-type(1) {
+  text-align: left;
+  width: 80%;
 }
 
 .storeCakes li button {
-  font-size: 2rem;
-  background-color: #ffdfd2;
-  border: none;
-  padding: 10px 10px;
+  font-size: 2.3rem;
+  background-color: #6d4522;
+  color: #fff;
+  padding: 10px 15px;
   border-radius: 5px;
-  font-weight: 500;
+  border: 1px solid transparent;
+  font-weight: 600;
+}
+.storeCakes li button:hover,
+.storeCakes li button:focus {
+  background-color: #fff;
+  color: #6d4522;
+  border-color: #6d4522;
+  cursor: pointer;
+  box-shadow: 3px 3px 3px #000;
 }
 
-/*---Bag Button----*/
+/*---shopping bag Icon style */
 .bagButtonContainer {
   position: fixed;
   top: 0;
@@ -130,16 +166,26 @@ h1 {
   border: none;
   background: transparent;  
   color: #6d4522;
-  padding-top: 3px;
+  padding-top: 5px;
   padding-right: 5vw;
   position: relative;
 }
+
+.bagButton:hover,
+.bagButton:focus {
+  cursor: pointer;
+}
 .bagButton p {
   font-size: 2rem;
-  color: #fff;
+  font-weight: 600;
+  color: #000;
   position: absolute;
-  top: 23px;
-  left: 17px;
+  top: 30px;
+  left: 10px;
+  background: #fff;
+  padding: 4px 10px;
+  border-radius: 50%;
+  border: 1px solid #6d4522
 }
 
 /*-----BAG-----*/
@@ -147,12 +193,12 @@ h1 {
   height: 100vh;
   background-color:#6d4522;
   color: #fff;
-  width: 30%;
+  width: 40%;
   position: fixed;
   top: 0;
   right: 0;
-  font-size: 2rem;
-  padding: 15px;
+  font-size: 2.5rem;
+  padding: 15px 10px;
   text-align: center;
   overflow-y: scroll;
   display: flex;
@@ -164,41 +210,123 @@ h1 {
   border: none;
   align-self: flex-start;
   color: #fff;
+  font-size: 3rem;
+}
+.goBackButton:hover,
+.goBackButton:focus {
+  cursor: pointer;
+}
 
+.goBackButton ~ p {
+  margin: 15px 0 40px 0;
+  font-weight: 600;
 }
 
 .userCakes li {
   display: flex;
   justify-content: space-between;
+  margin: 5px 0;
+  border: 1px solid transparent;
+}
+.userCakes li:hover,
+.userCakes li:focus {
+  border-color: #fff;
 }
 .userCakes img {
   width: 30%;
+  border: 1px solid #fff;
 }
 .bagText {
   width: 60%;
   text-align: right;
+}
+.bagText p {
+  line-height: 30px;
 }
 .deleteButton {
   width: 10%;
   background: transparent;
   border: none;
   color: #fff;
+  margin-left: 10px;
 }
-.userCakes p:last-child {
+.deleteButton:hover,
+.deleteButton:focus {
+  transform: scale(1.3);
+}
+.userCakes li ~ p {
+  border-top: 1px solid white;
+  margin: 20px;
+  padding: 20px;
+  font-weight: 600;
   text-align: right;
 }
-
-
-
-
+.checkOutButton {
+  font-size: 2.7rem;
+  background-color: #ffdfd2;
+  color: #000;
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-weight: 600;
+  border: 1px solid #fff;
+  margin-bottom: 40px;
+  transform: all 500ms ease-in-out;
+}
+.checkOutButton:hover,
+.checkOutButton:focus {
+  background-color: #fff;
+  color: #6d4522;
+  cursor: pointer;
+}
 
 
 /*-----FOOTER-----*/
 footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   font-size: 2rem;
   height: 40px;
-  font-weight: 600;
-  line-height: 25px;  
-  background-color: #ffdfd2;
 }
+
+/*-----MEDIA QUERIES-----*/
+@media (max-width: 1000px) {
+  .headerImage {
+    width: 70%;
+  }
+  .storeCakes li {
+    width: calc(50% - 20px);
+    margin: 10px;
+  }
+}
+
+@media (max-width: 750px) {
+  .headerImage {
+    width: 80%;
+  }
+  .userCakes {
+    width: 65%;
+  }
+}
+
+@media (max-width: 600px) {
+  .headerImage {
+    width: 100%;
+  }
+  .userCakes {
+    width: 100%;
+  }
+  .storeCakes li {
+    width: calc(100% - 20px);
+    margin: 10px;
+  }
+}
+
+@media (max-width: 420px) {
+  h1,
+  h2 {
+    font-size: 5rem;
+  }
+}
+

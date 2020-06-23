@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import firebase from './firebase';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 import Bag from './Bag';
 import BagButton from './BagButton';
@@ -37,9 +35,6 @@ componentDidMount() {
     this.state.bagRef.on('value', (response) => {
     const newBag = [];
     const dataFromUserBag = response.val();
-   
-      // const number = Object.keys(dataFromUserBag).length;
-      // console.log(number);
 
     for (let key in dataFromUserBag) {
       newBag.push({
@@ -86,7 +81,7 @@ removeCake = (unwantedCakeId) => {
                             <p>${item.cake.price}</p>
                             <button 
                             onClick={() => this.handleAddToBag(item.cake, item.id)}>
-                            Add to Cart
+                            Add To Cart
                             </button>
                         </li>
                     )

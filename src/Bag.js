@@ -13,7 +13,7 @@ class Bag extends Component {
         <button className="goBackButton" onClick={handleHideBag}>
           <FontAwesomeIcon icon={faArrowLeft} />
         </button>
-        <p>You have {userBag.length} items in your bags</p>
+        <p>You have {userBag.length} items in your bag</p>
         <ul>
           {userBag.map(item => {
             return (
@@ -30,6 +30,7 @@ class Bag extends Component {
             )
           })}
         <p>Total: ${total}</p>
+        <button className="checkOutButton"><a href="https://www.facebook.com/desserts.corner96">Check Out</a></button>
         </ul>
       </div>
     );
