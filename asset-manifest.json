@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/anhDangProjectFive/static/css/main.f8f56435.chunk.css",
+    "main.css": "/anhDangProjectFive/static/css/main.30f1f893.chunk.css",
     "main.js": "/anhDangProjectFive/static/js/main.45bc1d31.chunk.js",
     "main.js.map": "/anhDangProjectFive/static/js/main.45bc1d31.chunk.js.map",
     "runtime-main.js": "/anhDangProjectFive/static/js/runtime-main.6b30ec5f.js",
@@ -8,16 +8,16 @@
     "static/js/2.47ed7bd9.chunk.js": "/anhDangProjectFive/static/js/2.47ed7bd9.chunk.js",
     "static/js/2.47ed7bd9.chunk.js.map": "/anhDangProjectFive/static/js/2.47ed7bd9.chunk.js.map",
     "index.html": "/anhDangProjectFive/index.html",
-    "precache-manifest.a36800465016eb1768b8952bfdf3ab97.js": "/anhDangProjectFive/precache-manifest.a36800465016eb1768b8952bfdf3ab97.js",
+    "precache-manifest.0679dc63c94e266cb40e71673991f4d7.js": "/anhDangProjectFive/precache-manifest.0679dc63c94e266cb40e71673991f4d7.js",
     "service-worker.js": "/anhDangProjectFive/service-worker.js",
-    "static/css/main.f8f56435.chunk.css.map": "/anhDangProjectFive/static/css/main.f8f56435.chunk.css.map",
+    "static/css/main.30f1f893.chunk.css.map": "/anhDangProjectFive/static/css/main.30f1f893.chunk.css.map",
     "static/js/2.47ed7bd9.chunk.js.LICENSE.txt": "/anhDangProjectFive/static/js/2.47ed7bd9.chunk.js.LICENSE.txt",
     "static/media/logo.jpg": "/anhDangProjectFive/static/media/logo.7e841cd3.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.6b30ec5f.js",
     "static/js/2.47ed7bd9.chunk.js",
-    "static/css/main.f8f56435.chunk.css",
+    "static/css/main.30f1f893.chunk.css",
     "static/js/main.45bc1d31.chunk.js"
   ]
 }
