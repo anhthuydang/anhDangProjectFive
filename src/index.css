@@ -70,6 +70,7 @@ footer  {
 /*-----HEADER-----*/
 header {
   height: 100vh;
+  margin-top: 30px;
 }
 
 header .wrapper {
@@ -82,7 +83,7 @@ header .wrapper {
 
 nav {
   width: 100%;
-  height: 70px;
+  height: 50px;
   display: flex;
   justify-content: flex-end; 
   position: fixed;
@@ -90,7 +91,7 @@ nav {
 }
 
 .headerImage {
-  width: 50%;
+  width: 40%;
 }
 
 header img {
@@ -102,7 +103,7 @@ h2 {
   font-size: 6rem;
   color: 	#6d4522;
   font-family: 'Parisienne', cursive;
-  padding-bottom: 30px;
+  /* padding-bottom: 30px; */
 }
 
 /*-----MAIN-----*/
@@ -162,7 +163,7 @@ footer {
   right: 0;
 }
 .bagButton {
-  font-size: 4rem;
+  font-size: 3rem;
   border: none;
   background: transparent;  
   color: #6d4522;
@@ -176,14 +177,14 @@ footer {
   cursor: pointer;
 }
 .bagButton p {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: #000;
   position: absolute;
-  top: 30px;
-  left: 10px;
+  top: 25px;
+  left: 9px;
   background: #fff;
-  padding: 4px 10px;
+  padding: 2px 7px;
   border-radius: 50%;
   border: 1px solid #6d4522
 }
@@ -197,7 +198,7 @@ footer {
   position: fixed;
   top: 0;
   right: 0;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   padding: 15px 10px;
   text-align: center;
   overflow-y: scroll;
@@ -262,7 +263,6 @@ footer {
   text-align: right;
 }
 .checkOutButton {
-  font-size: 2.7rem;
   background-color: #ffdfd2;
   color: #000;
   padding: 10px 30px;
@@ -270,7 +270,6 @@ footer {
   font-weight: 600;
   border: 1px solid #fff;
   margin-bottom: 40px;
-  transform: all 500ms ease-in-out;
 }
 .checkOutButton:hover,
 .checkOutButton:focus {
@@ -287,13 +286,13 @@ footer {
   align-items: center;
   text-align: center;
   font-size: 2rem;
-  height: 40px;
+  height: 30px;
 }
 
 /*-----MEDIA QUERIES-----*/
 @media (max-width: 1000px) {
   .headerImage {
-    width: 70%;
+    width: 60%;
   }
   .storeCakes li {
     width: calc(50% - 20px);
