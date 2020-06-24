@@ -28,7 +28,7 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
 
 img { width: 100%; display: block}
 
-/* ------------------------------------------------------- */
+/* -----------------SETUP ENDS---------------- */
 
 html {
   font-size: 62.5%;
@@ -100,7 +100,6 @@ h2 {
   font-size: 6rem;
   color: 	#6d4522;
   font-family: 'Parisienne', cursive;
-  /* padding-bottom: 30px; */
 }
 
 /*-----MAIN-----*/
@@ -187,7 +186,7 @@ footer {
   border: 1px solid #6d4522
 }
 
-/*-----BAG-----*/
+/*-----BAG Section-----*/
 .userCakes {
   height: 100vh;
   background-color:#6d4522;
@@ -254,7 +253,7 @@ footer {
 .deleteButton:focus {
   transform: scale(1.3);
 }
-.userCakes li ~ p {
+.total {
   border-top: 1px solid white;
   margin: 20px;
   padding: 20px;

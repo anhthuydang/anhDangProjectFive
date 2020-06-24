@@ -10,12 +10,12 @@ constructor() {
     super();
     this.state = {
       dbRef: firebase.database().ref(),
-      bagRef: firebase.database().ref('userBag'),
       cakes: [],
       userBag: [],
       total: 0,
     }
   }
+  
 componentDidMount() {
   //set state to display cakes on the page
     this.state.dbRef.on('value', (response) => {
@@ -31,56 +31,56 @@ componentDidMount() {
             cakes: newState,
         })
     })
-    //set state to display cakes in user's shopping bag
-    this.state.bagRef.on('value', (response) => {
-    const newBag = [];
-    const dataFromUserBag = response.val();
+}
 
-    for (let key in dataFromUserBag) {
-      newBag.push({
-        cake: dataFromUserBag[key],
-        id: key,
-        price: dataFromUserBag[key].price
-      })
-    }
-    
-    //Function to map out an array of prices then calculate total price (sum of the array)
-    const newTotal = newBag.map(value => {
-      return value.price;
-    }).reduce((a,b) => a + b, 0);
+//add items to shopping bag and calculate total price
+handleAddToBag = (chosenCake) => {
+  const newUserBag = [...this.state.userBag];
+  newUserBag.push(chosenCake);
+  //map out an array of current item prices to calculate sum
+  const newTotal = newUserBag.map((item) => {
+    return item.price;
+  }).reduce((a,b) => a + b, 0);
 
-    this.setState ({
-      userBag: newBag,
-      total: newTotal,
-    
-    })
+  this.setState ({
+    userBag: newUserBag,
+    total: newTotal
   })
 }
-//send data of chosen cakes to store in firebase (users)
-handleAddToBag = (chosenCake) => {
-  this.state.bagRef.push(chosenCake);
-  
-}
-//remove cake from shopping bag
-removeCake = (unwantedCakeId) => {
-  this.state.bagRef.child(unwantedCakeId).remove();
+
+//remove cake from shopping bag and calculate total price again
+removeCake = (cakeIndex) => {
+
+  const newUserBag = [...this.state.userBag];
+  //filter shopping bag array and only return remaining items (except the item was clicked)
+  const updatedBag = newUserBag.filter((item,index) => {
+    return (index !== cakeIndex);
+  });
+  //map out an array of current item prices to calculate sum
+  const newTotal = newUserBag.map((item) => {
+    return item.price;
+  }).reduce((a,b) => a + b, 0);
+
+  this.setState ({
+    userBag: updatedBag,
+    total: newTotal
+  })
 }
 
 //--------------
   render() {
-    
     return (
       <main>
           <div className="wrapper">
             <ul className="storeCakes">
                 {this.state.cakes.map(item => {
                     return (
-                        <li key={item.id}>
+                        <li key={item.cake.name}>
                             <img src={item.cake.image} alt={item.cake.name}/>
                             <p>{item.cake.name}</p>
                             <p>${item.cake.price}</p>
                             <button 
-                            onClick={() => this.handleAddToBag(item.cake, item.id)}>
+                            onClick={() => this.handleAddToBag(item.cake)}>
                             Add To Cart
                             </button>
                         </li>
@@ -92,7 +92,8 @@ removeCake = (unwantedCakeId) => {
             handleShowBag={this.props.handleShowBag}
             userBag={this.state.userBag}  
             />
-
+            
+            {/* if isBagShown is true, show the Bag, if it's false, show nothing */}
             {this.props.isBagShown ? 
             <Bag
             handleHideBag={this.props.handleHideBag} 

@@ -15,21 +15,21 @@ class Bag extends Component {
         </button>
         <p>You have {userBag.length} items in your bag</p>
         <ul>
-          {userBag.map(item => {
+          {userBag.map((item, index) => {
             return (
-              <li key={item.id}>
-                    <img src={item.cake.image} alt={item.cake.name}/>
+              <li key={index} index={index}>
+                    <img src={item.image} alt={item.name}/>
                     <div className="bagText">
-                      <p>{item.cake.name}</p>
-                      <p>${item.cake.price}</p>
+                      <p>{item.name}</p>
+                      <p>${item.price}</p>
                     </div>
-                    <button onClick={() => removeCake(item.id)} className="deleteButton">
+                    <button onClick={() => removeCake(index)} className="deleteButton">
                         <FontAwesomeIcon icon={faTimesCircle} />
                     </button>
               </li>
             )
           })}
-        <p>Total: ${total}</p>
+        <p className="total">Total: ${total}</p>
         <button className="checkOutButton"><a href="https://www.facebook.com/desserts.corner96">Check Out</a></button>
         </ul>
       </div>
