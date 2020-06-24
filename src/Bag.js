@@ -6,6 +6,9 @@ import { faArrowLeft, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 class Bag extends Component {
+
+  
+
   render() {
     const {handleHideBag, userBag, removeCake, total} = this.props;
     return (
@@ -23,7 +26,7 @@ class Bag extends Component {
                       <p>{item.name}</p>
                       <p>${item.price}</p>
                     </div>
-                    <button onClick={() => removeCake(index)} className="deleteButton">
+                    <button onClick={() => {removeCake(index)}} className="deleteButton">
                         <FontAwesomeIcon icon={faTimesCircle} />
                     </button>
               </li>

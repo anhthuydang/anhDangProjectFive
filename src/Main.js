@@ -35,29 +35,11 @@ componentDidMount() {
 
 //add items to shopping bag and calculate total price
 handleAddToBag = (chosenCake) => {
-  const newUserBag = [...this.state.userBag];
-  newUserBag.push(chosenCake);
+  const updatedBag = [...this.state.userBag];
+  updatedBag.push(chosenCake);
+
   //map out an array of current item prices to calculate sum
-  const newTotal = newUserBag.map((item) => {
-    return item.price;
-  }).reduce((a,b) => a + b, 0);
-
-  this.setState ({
-    userBag: newUserBag,
-    total: newTotal
-  })
-}
-
-//remove cake from shopping bag and calculate total price again
-removeCake = (cakeIndex) => {
-
-  const newUserBag = [...this.state.userBag];
-  //filter shopping bag array and only return remaining items (except the item was clicked)
-  const updatedBag = newUserBag.filter((item,index) => {
-    return (index !== cakeIndex);
-  });
-  //map out an array of current item prices to calculate sum
-  const newTotal = newUserBag.map((item) => {
+  const newTotal = updatedBag.map((item) => {
     return item.price;
   }).reduce((a,b) => a + b, 0);
 
@@ -67,7 +49,25 @@ removeCake = (cakeIndex) => {
   })
 }
 
-//--------------
+//remove cake from shopping bag and calculate total price again
+removeCake = (cakeIndex) => {
+  const updatedBag = [...this.state.userBag];
+  //filter shopping bag array and only return remaining items (except the item was clicked)
+  const filteredBag = updatedBag.filter((item,index) => {
+    return (index !== cakeIndex);
+  });
+
+  //map out an array of current item prices to calculate sum
+  const newTotal = filteredBag.map((item) => {
+    return item.price;
+  }).reduce((a,b) => a + b, 0);
+
+  this.setState ({
+    userBag: filteredBag,
+    total: newTotal
+  })
+}
+
   render() {
     return (
       <main>
@@ -99,6 +99,7 @@ removeCake = (cakeIndex) => {
             handleHideBag={this.props.handleHideBag} 
             userBag={this.state.userBag} 
             removeCake={this.removeCake}
+            recalculateTotal={this.recalculateTotal}
             total={this.state.total} 
             /> : null }
           </div>
