@@ -233,6 +233,7 @@ footer {
 }
 .userCakes img {
   width: 30%;
+  max-height: 120px;
   border: 1px solid #fff;
 }
 .bagText {
