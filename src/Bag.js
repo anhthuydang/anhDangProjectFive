@@ -3,12 +3,7 @@ import React, {Component} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
-
-
 class Bag extends Component {
-
-  
-
   render() {
     const {handleHideBag, userBag, removeCake, total} = this.props;
     return (

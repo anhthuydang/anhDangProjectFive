@@ -4,7 +4,6 @@ import firebase from './firebase';
 import Bag from './Bag';
 import BagButton from './BagButton';
 
-
 class Main extends Component {
 constructor() {
     super();

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-
 import image from './logo.jpg';
-
 
 class Header extends Component {
   render() {
@@ -18,9 +16,7 @@ class Header extends Component {
             </div>
         </header>
     )
-    
   }
 }
-
 export default Header;
 
