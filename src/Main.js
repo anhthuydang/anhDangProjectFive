@@ -9,27 +9,77 @@ constructor() {
     super();
     this.state = {
       dbRef: firebase.database().ref(),
-      cakes: [],
+      inventory: [],
       userBag: [],
       total: 0,
     }
   }
-  
-componentDidMount() {
-  //set state to display cakes on the page
-    this.state.dbRef.on('value', (response) => {
-        const newState = [];
-        const data = response.val();
-        for (let key in data.store) {
-            newState.push({
-                cake: data.store[key],
-                id: key,
-            })
-        }
-        this.setState({
-            cakes: newState,
+
+// display all items on the page
+displayAll = () => {
+  this.state.dbRef.on('value', (response) => {
+    const allItems = [];
+    const data = response.val();
+    //loop through types of items
+    for (let type in data) {
+      //loop through every item of each type and add items to array
+      for (let key in data[type]) {
+        allItems.push({
+            product: data[type][key],
+            id: key,
         })
+      }
+    } 
+    //set state of inventory to show all items
+    this.setState({
+        inventory: allItems,
     })
+  })
+}
+
+//render items on the page at default
+componentDidMount() {
+  this.displayAll();
+}
+
+//function to display breads only
+displayBreads = () => {
+  this.state.dbRef.on('value', (response) => {
+    const breads = [];
+    const data = response.val();
+    //loop through each item in bread category and add those breads to an array
+    for (let key in data.bread) {
+          breads.push({
+              product: data.bread[key],
+              id: key,
+          })
+      }
+    //set state of inventory to show only breads
+    this.setState({
+      inventory: breads,
+    })
+    
+  })
+}
+
+//function to display cakes only
+displayCakes = () => {
+  this.state.dbRef.on('value', (response) => {
+    const cakecake = [];
+    const data = response.val();
+    //loop through each item in cake category and add those cakes to an array
+    for (let key in data.cake) {
+          cakecake.push({
+              product: data.cake[key],
+              id: key,
+          })
+      }
+    //set state of inventory to show only cakes
+    this.setState({
+      inventory: cakecake,
+    })
+    
+  })
 }
 
 //add items to shopping bag and calculate total price
@@ -48,7 +98,7 @@ handleAddToBag = (chosenCake) => {
   })
 }
 
-//remove cake from shopping bag and calculate total price again
+//remove product from shopping bag and calculate total price again
 removeCake = (cakeIndex) => {
   const updatedBag = [...this.state.userBag];
   //filter shopping bag array and only return remaining items (except the item was clicked)
@@ -71,15 +121,21 @@ removeCake = (cakeIndex) => {
     return (
       <main>
           <div className="wrapper">
+            <ul>
+              <li><button onClick={this.displayAll}>All</button></li>
+              <li><button onClick={this.displayBreads}>Bread</button></li>
+              <li><button onClick={this.displayCakes}>Cake</button></li>
+            </ul>
+            <h3>UNDER CONSTRUCTION (adding more features)</h3>
             <ul className="storeCakes">
-                {this.state.cakes.map(item => {
+                {this.state.inventory.map(item => {
                     return (
-                        <li key={item.cake.name}>
-                            <img src={item.cake.image} alt={item.cake.name}/>
-                            <p>{item.cake.name}</p>
-                            <p>${item.cake.price}</p>
+                        <li key={item.product.name}>
+                            <img src={item.product.image} alt={item.product.name}/>
+                            <p>{item.product.name}</p>
+                            <p>${item.product.price}</p>
                             <button 
-                            onClick={() => this.handleAddToBag(item.cake)}>
+                            onClick={() => this.handleAddToBag(item.product)}>
                             Add To Cart
                             </button>
                         </li>
@@ -98,7 +154,6 @@ removeCake = (cakeIndex) => {
             handleHideBag={this.props.handleHideBag} 
             userBag={this.state.userBag} 
             removeCake={this.removeCake}
-            recalculateTotal={this.recalculateTotal}
             total={this.state.total} 
             /> : null }
           </div>

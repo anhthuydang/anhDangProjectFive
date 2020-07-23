@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
+    font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -57,14 +59,14 @@ a:visited {
   width: 90%;
   margin: 0 auto;
 }
-/* Setting Background color */
+    /* Setting Background color */
 header,
 nav,
 .storeCakes li,
 footer  {
   background-color: #ffdfd2;
 }
-/*-----HEADER-----*/
+    /*-----HEADER-----*/
 header {
   height: 100vh;
   margin-top: 30px;
@@ -102,12 +104,12 @@ h2 {
   font-family: 'Parisienne', cursive;
 }
 
-/*-----MAIN-----*/
-.storeCakes p, 
+    /*-----MAIN-----*/
+/* .storeCakes p, 
 .storeCakes button,
 footer {
-  font-family: 'Parisienne', cursive;;
-}
+  font-family: 'Parisienne', cursive;
+} */
 .storeCakes {
   display: flex;
   flex-wrap: wrap;
@@ -120,9 +122,11 @@ footer {
   text-align: right;
   border-radius: 5px;
   padding: 15px;
-  font-weight: 600;
+  /* font-weight: 600; */
 }
-
+.storeCakes img {
+  min-height: 300px; /* added this for bread img*/
+}
 .storeCakes li p {
   font-size: 2.5rem;
   display: inline-block;
@@ -141,7 +145,7 @@ footer {
   padding: 10px 15px;
   border-radius: 5px;
   border: 1px solid transparent;
-  font-weight: 600;
+  /* font-weight: 600; */
 }
 .storeCakes li button:hover,
 .storeCakes li button:focus {
