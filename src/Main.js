@@ -121,7 +121,7 @@ removeCake = (cakeIndex) => {
     return (
       <main>
           <div className="wrapper">
-            <ul>
+            <ul className="category">
               <li><button onClick={this.displayAll}>All</button></li>
               <li><button onClick={this.displayBreads}>Bread</button></li>
               <li><button onClick={this.displayCakes}>Cake</button></li>
