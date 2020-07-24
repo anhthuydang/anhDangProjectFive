@@ -105,22 +105,33 @@ h2 {
 }
 
     /*-----MAIN-----*/
-/* .storeCakes p, 
-.storeCakes button,
-footer {
-  font-family: 'Parisienne', cursive;
-} */
-
+main {
+  padding: 100px 0;
+}
 .category {
   display: flex;
   margin: auto 0;
   width: 100%;
+  justify-content: center;
+  padding-bottom: 60px;
+}
+
+.category button {
+  font-size: 2rem;
+  border: none;
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  padding: 5px 15px;
+}
+.category button:hover,
+.category button:focus {
+  border-bottom-color: #6d4522;
+  cursor: pointer;
 }
 
 .storeCakes {
   display: flex;
   flex-wrap: wrap;
-  padding: 100px 0;
 }
 
 .storeCakes li {
@@ -129,13 +140,10 @@ footer {
   text-align: right;
   border-radius: 5px;
   padding: 15px;
-  /* font-weight: 600; */
 }
-.storeCakes img {
-  min-height: 300px; /* added this for bread img*/
-}
+
 .storeCakes li p {
-  font-size: 2.5rem;
+  font-size: 2rem;
   display: inline-block;
   width: 20%;
   margin: 15px 0;
@@ -146,14 +154,14 @@ footer {
 }
 
 .storeCakes li button {
-  font-size: 2.3rem;
+  font-size: 2rem;
   background-color: #6d4522;
   color: #fff;
   padding: 10px 15px;
   border-radius: 5px;
   border: 1px solid transparent;
-  /* font-weight: 600; */
 }
+
 .storeCakes li button:hover,
 .storeCakes li button:focus {
   background-color: #fff;

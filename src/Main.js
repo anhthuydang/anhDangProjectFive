@@ -122,11 +122,11 @@ removeCake = (cakeIndex) => {
       <main>
           <div className="wrapper">
             <ul className="category">
-              <li><button onClick={this.displayAll}>All</button></li>
-              <li><button onClick={this.displayBreads}>Bread</button></li>
-              <li><button onClick={this.displayCakes}>Cake</button></li>
+              <li><button onClick={this.displayAll}>All 👩🏻‍🍳</button></li>
+              <li><button onClick={this.displayBreads}>Bread 🍞</button></li>
+              <li><button onClick={this.displayCakes}>Cake 🍰</button></li>
             </ul>
-            <h3>UNDER CONSTRUCTION (adding more features)</h3>
+            {/* <h3>UNDER CONSTRUCTION (adding more features)</h3> */}
             <ul className="storeCakes">
                 {this.state.inventory.map(item => {
                     return (
