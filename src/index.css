@@ -210,7 +210,7 @@ main {
   height: 100vh;
   background-color:#6d4522;
   color: #fff;
-  width: 40%;
+  width: 350px;
   position: fixed;
   top: 0;
   right: 0;
@@ -322,18 +322,13 @@ footer {
   .headerImage {
     width: 80%;
   }
-  .userCakes {
-    width: 65%;
-  }
 }
 
 @media (max-width: 600px) {
   .headerImage {
     width: 100%;
   }
-  .userCakes {
-    width: 100%;
-  }
+
   .storeCakes li {
     width: calc(100% - 20px);
     margin: 10px;
@@ -344,6 +339,10 @@ footer {
   h1,
   h2 {
     font-size: 5rem;
+  }
+
+  .userCakes {
+    width: 100%;
   }
 }
 

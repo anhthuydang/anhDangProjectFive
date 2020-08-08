@@ -136,7 +136,7 @@ removeCake = (cakeIndex) => {
                             <p>${item.product.price}</p>
                             <button 
                             onClick={() => this.handleAddToBag(item.product)}>
-                            Add To Cart
+                            Add
                             </button>
                         </li>
                     )
@@ -148,7 +148,7 @@ removeCake = (cakeIndex) => {
             userBag={this.state.userBag}  
             />
             
-            {/* if isBagShown is true, show the Bag, if it's false, show nothing */}
+            {/* if isBagShown is true, show the Bag, if false, show nothing */}
             {this.props.isBagShown ? 
             <Bag
             handleHideBag={this.props.handleHideBag} 
