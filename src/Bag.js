@@ -11,7 +11,7 @@ class Bag extends Component {
         <button className="goBackButton" onClick={handleHideBag}>
           <FontAwesomeIcon icon={faArrowLeft} />
         </button>
-        <p>You have {userBag.length} items in your bag</p>
+        <p>You have {userBag.length} {userBag.length === 0 ? "item" : "items"} in your bag</p>
         <ul>
           {userBag.map((item, index) => {
             return (

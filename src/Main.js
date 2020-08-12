@@ -122,9 +122,9 @@ removeCake = (cakeIndex) => {
       <main>
           <div className="wrapper">
             <ul className="category">
-              <li><button onClick={this.displayAll}>All 👩🏻‍🍳</button></li>
-              <li><button onClick={this.displayBreads}>Bread 🍞</button></li>
-              <li><button onClick={this.displayCakes}>Cake 🍰</button></li>
+              <li><button onClick={this.displayAll}>All <span role="img" aria-label="all">👩🏻‍🍳</span></button></li>
+              <li><button onClick={this.displayBreads}>Bread <span role="img" aria-label="bread">🍞</span></button></li>
+              <li><button onClick={this.displayCakes}>Cake <span role="img" aria-label="cake">🍰</span></button></li>
             </ul>
             {/* <h3>UNDER CONSTRUCTION (adding more features)</h3> */}
             <ul className="storeCakes">
